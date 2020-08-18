@@ -1,0 +1,13 @@
+- hosts: ec2
+  gather_facts: yes
+  tasks:
+  - package:
+     name: httpd
+     state: present
+  - service:
+     name: httpd
+     state: started
+     enabled: yes
+  - copy:
+     src: /home/testansi/index.html
+     dest: /var/www/html
